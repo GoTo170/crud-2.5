@@ -6,23 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>editar generos</h1>
+    <h1>Editar generos</h1>
 
-
-    <div style="text-align: center ;">
+    <div style="text-align: center;">
         {% if genero %}
-            <h2>formulario para actualizar generos</h2>
+            <h2>Formulario para actualizar generos</h2>
 
             <form action="" method="POST">
                 {% csrf_token %}
-                {{ form.as_table}}
+                {{ form.as_table }}
                 <input type="submit" name="opcion" value="Actualizar">
             </form>
 
         {% endif %}
-        <div id="idmensajes">
+        <div id="idMensajes">
             {% if mensaje %}
-                {{mensaje}}
+                {{ mensaje }}
             {% endif %}
         </div>
         <br>

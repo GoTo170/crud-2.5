@@ -6,12 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>formulario generos</h1>
+    <h1>formulario genero</h1>
 
     <form action="" method="POST">
-        (% csrf_token %)
-        {{form.as_table}}
-        <input type="submit">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar">
     </form>
+    <br>
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+    <br>
+    <a href="{% url 'crud_generos' %}">Volver</a>
 </body>
 </html>
