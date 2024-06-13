@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>alumnos_list</h1>
+
+    <button type="button">
+        <a href="{% url 'alumnosAdd' %}"> Agregar </a>
+    </button>
+
+    <div id="idmensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+
+    <table>
+        {% if alumnos %}
+            <th>Rut</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+            {% for alumno in alumnos %}
+                <tr>
+                    <td>{{alumno.rut}}</td>
+                    <td>{{alumno.nombre}}</td>
+                    <td>{{alumno.apellido_paterno}}</td>
+                    <td><a href="{% url 'alumnos_del' pk=alumno.rut %}"></a>Eliminar</td>
+                    <td><a href="{% url 'alumnos_findEdit' pk=alumno.rut %}">Modificar</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+</body>
+</html>
